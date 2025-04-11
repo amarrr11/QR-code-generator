@@ -1,12 +1,12 @@
 # QR Code Generator
 
-A clean and fast QR Code Generator using Vanilla JavaScript. Users can enter text or URL, select custom size, choose the download format (PNG, JPG, SVG, PDF), and generate animated QR codes in one click.
+A clean and fast QR Code Generator using Vanilla JavaScript. Users can enter text or URL, select custom size, choose the download format (PNG, JPG, PDF), and generate animated QR codes in one click.
 
 ## 🔧 Features
 
 - Real-time QR code generation  
 - Select size from dropdown (auto updates QR)  
-- Choose format: PNG, JPG, SVG, or PDF  
+- Choose format: PNG, JPG, or PDF  
 - Smooth vertical animation on QR appearance  
 - Prevents empty input and alerts user  
 - Fully responsive & minimal UI
