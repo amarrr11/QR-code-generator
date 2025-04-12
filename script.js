@@ -26,7 +26,7 @@ sizes.addEventListener('change', (e) => {
 downloadBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const format = formatSelect.value.toLowerCase();
+    const format = formatSelect.value.toLowerCase();  //JPG ko jpg me krne k liye
     const canvas = document.querySelector(".qr-body canvas");
 
     if (!canvas) {
@@ -47,6 +47,20 @@ downloadBtn.addEventListener("click", (e) => {
     }
 });
 
+// CHECK if UPI format then allow payment
+
+function buildUPIIfNeeded(inputText) {
+    // If input is like just a VPA (upi address)
+    if (/^[\w.-]+@[\w]+$/.test(inputText)) {
+        // Build full UPI URI
+        const name = "Your Name"; // Optional: You can ask this from user too
+        const amount = "";       
+        return `upi://pay?pa=${inputText}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+    }
+    return inputText; // If not VPA format, return as it is
+}
+
+
 // Function: Check if input is empty
 function isEmptyInput() {
     if (qrText.value.trim().length > 0) {
@@ -57,18 +71,17 @@ function isEmptyInput() {
 }
 
 // Function: Generate QR Code
-function generateQRCode() {
-    qrContainer.innerHTML = ""; // Clear old QR
+function generateQRCode(){
+    qrContainer.innerHTML = "";
 
-    // Animation: vertical grow
     qrContainer.classList.remove('show');
     void qrContainer.offsetWidth;
     qrContainer.classList.add('show');
 
-    console.log("QR Text: ", qrText.value);
+    const finalText = buildUPIIfNeeded(qrText.value); // Added here
 
     new QRCode(qrContainer, {
-        text: qrText.value,
+        text: finalText,
         width: parseInt(size),
         height: parseInt(size),
         colorDark: "#000000",
