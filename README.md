@@ -1,26 +1,60 @@
-# QR Code Generator
+# QR Code Generator Web App
 
-A clean and fast QR Code Generator using Vanilla JavaScript. Users can enter text or URL, select custom size, choose the download format (PNG, JPG, PDF), and generate animated QR codes in one click.
+This is a web-based QR Code Generator built using **HTML, CSS, and JavaScript (Vanilla)**. It allows users to enter any text or URL, choose the size and format of the QR code, and download it in different formats (PNG, JPG, SVG, PDF). It also supports basic animation and input validation. Additionally, the application can detect UPI IDs and generate payment-ready QR codes that open in payment apps like Google Pay or PhonePe when scanned.
 
-## 🔧 Features
+---
 
-- Real-time QR code generation  
-- Select size from dropdown (auto updates QR)  
-- Choose format: PNG, JPG, or PDF  
-- Smooth vertical animation on QR appearance  
-- Prevents empty input and alerts user  
-- Fully responsive & minimal UI
+## Features
 
-## 🛠 Tech Stack
+- Input any text or URL to generate a QR code.
+- Choose from multiple QR code sizes.
+- Download the QR code in four formats: **PNG**, **JPG**, **SVG**, and **PDF**.
+- Smooth vertical animation when QR code is generated.
+- Auto-block download if no QR code is present.
+- Automatically detects UPI IDs and generates QR codes that open payment apps when scanned.
 
-- HTML, CSS, JavaScript  
-- qrcode.js (for QR code generation)  
-- jsPDF (for PDF export)
+---
 
-## 🚀 How to Use
+## UPI Integration
 
-1. Type any text or URL.  
-2. Choose desired size and download format.  
-3. Click **Generate** – QR appears with animation.  
-4. Click **Download** – saves the QR in selected format.
+If the user enters a UPI ID (e.g., `amarshyam9199@oksbi`), the code automatically converts it into a valid UPI payment string like:
+
+```
+upi://pay?pa=amarshyam9199@oksbi&pn=RecipientName
+```
+
+This makes the QR scan-ready for any UPI-compatible app.
+
+---
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- [QRCode.js](https://github.com/davidshimjs/qrcodejs)
+- [jsPDF](https://github.com/parallax/jsPDF)
+
+---
+
+## How to Run
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/qr-code-generator.git
+```
+
+2. Open `index.html` in your browser.
+3. Enter text or UPI ID, select size and format.
+4. Click on **Generate** to view the QR code.
+5. Click on **Download** to save it in the selected format.
+
+---
+
+## Future Enhancements
+
+- Add logo/image overlay in QR.
+- Add QR history feature.
+
 
